@@ -2,7 +2,10 @@ function Tile(position, value) {
   this.x                = position.x;
   this.y                = position.y;
   this.value            = value || 2;
-
+  this.messages = ["F","D","D+","C","C+","B-","B","B+","A-","A","A+","Stop Dreaming!"];
+  this.index = Math.log(this.value)/Math.log(2)-1;
+  this.message = this.messages[this.index<12? this.index:11];
+  
   this.previousPosition = null;
   this.mergedFrom       = null; // Tracks tiles that merged together
 }
